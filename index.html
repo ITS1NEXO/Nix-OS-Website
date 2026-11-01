@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="NIX OS — a clean, customizable Android launcher experience.">
+  <title>NIX OS — Android, refined</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2d;--panel2:#10243a;--line:#1d3854;--text:#eef7ff;--muted:#9ab0c8;--blue:#258be8;--cyan:#56d5ff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#123c62 0,transparent 42%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit}.wrap{width:min(1080px,calc(100% - 36px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.logo{font-weight:900;letter-spacing:.22em;color:var(--cyan);font-size:15px}.nav a{color:var(--muted);text-decoration:none;font-size:13px;margin-left:22px}.hero{padding:88px 0 68px;display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}.hero h1{font-size:clamp(46px,8vw,82px);line-height:.98;letter-spacing:-.065em;margin:18px 0}.hero h1 span{color:var(--cyan)}.lead{color:var(--muted);max-width:560px;font-size:17px}.version{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);background:#0c2035;padding:8px 12px;border-radius:99px;font-size:12px;color:#cdeaff;margin:16px 0 22px}.dot{width:7px;height:7px;background:#53d6a0;border-radius:50%}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:13px;text-decoration:none;font-weight:750;font-size:13px;border:1px solid var(--line);background:var(--panel2)}.btn.primary{background:linear-gradient(110deg,var(--blue),#1768ba);border-color:#329cf2;color:white}.btn.disabled{opacity:.55;cursor:not-allowed}.device{min-height:360px;border:1px solid #2c5273;border-radius:34px;background:linear-gradient(145deg,#112c46,#091827);padding:20px;box-shadow:0 28px 90px #0008;max-width:330px;width:100%;justify-self:end}.device-top{display:flex;justify-content:space-between;color:#8eabc6;font-size:10px}.screen{margin-top:26px;border-radius:22px;background:linear-gradient(160deg,#dceeff,#9ac9ef);color:#10253a;min-height:270px;padding:24px 18px;overflow:hidden}.screen small{font-weight:700;opacity:.65}.screen time{display:block;font-size:54px;letter-spacing:-.07em;font-weight:700;margin-top:12px}.screen .tile{background:#ffffffa8;border:1px solid #ffffffb8;border-radius:16px;padding:13px;margin-top:24px;font-size:12px}.screen .icons{display:flex;gap:12px;margin-top:18px}.screen .icons i{width:34px;height:34px;border-radius:12px;background:#ffffffc9;display:block}.section{padding:58px 0;border-top:1px solid #ffffff12}.section h2{font-size:clamp(27px,4vw,38px);letter-spacing:-.04em;margin:8px 0}.section-intro{color:var(--muted);max-width:650px;margin:0 0 26px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:linear-gradient(145deg,var(--panel),#0a1726);border:1px solid var(--line);border-radius:22px;padding:24px}.card .tag{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.card h3{font-size:22px;margin:8px 0}.card p{color:var(--muted);font-size:14px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.chip{border:1px solid #284763;background:#10243a;color:#cce8ff;border-radius:99px;padding:6px 10px;font-size:11px}.note{border-left:3px solid var(--cyan);padding:12px 15px;background:#0c1d30;color:var(--muted);font-size:13px;border-radius:0 12px 12px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{padding:18px;border:1px solid var(--line);border-radius:17px;background:#0b1929}.step b{color:var(--cyan);font-size:12px}.step h3{font-size:15px;margin:8px 0}.step p{font-size:12px;color:var(--muted);margin:0}.footer{padding:30px 0 42px;color:#829bb4;font-size:12px;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#b8dfff}
+    @media(max-width:720px){.hero{grid-template-columns:1fr;padding:62px 0 48px;gap:28px}.device{justify-self:center;max-width:300px;min-height:320px}.screen{min-height:235px}.grid,.steps{grid-template-columns:1fr}.nav a{margin-left:12px}.nav .links a:first-child{display:none}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="logo" href="#" aria-label="NIX OS home">NIX OS</a>
+    <nav class="links"><a href="#experience">Experience</a><a href="#themes">Appearance packs</a><a href="#download">Download</a></nav>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">A focused Android launcher</div>
+        <h1>Your phone.<br><span>Your style.</span></h1>
+        <p class="lead">NIX OS brings a clean home-screen experience, useful shortcuts, and customizable visual styles to your Android device.</p>
+        <div class="version"><span class="dot"></span> Nix_OS_v1.3_Beta</div>
+        <div class="actions"><a class="btn primary" href="#download">Get NIX OS</a><a class="btn" href="https://github.com/ITS1NEXO/NIX-OS" target="_blank" rel="noopener">View source</a></div>
+      </div>
+      <div class="device" aria-label="Illustrative NIX OS launcher preview">
+        <div class="device-top"><span>9:41</span><span>●●●　 Wi-Fi　▰</span></div>
+        <div class="screen"><small>GOOD MORNING</small><time>09:41</time><small>MONDAY, OCTOBER 26</small><div class="tile"><b>NIX Assistant space</b><br>Everything you need, right at home.</div><div class="icons"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+    </section>
+    <section class="section" id="experience">
+      <div class="eyebrow">Made for everyday use</div><h2>A calmer home screen.</h2>
+      <p class="section-intro">A launcher project built around a simple idea: keep your essentials close and let the interface feel like yours. NIX OS is an Android launcher, not a standalone operating system or firmware ROM.</p>
+      <div class="grid">
+        <article class="card"><div class="tag">01 / Home</div><h3>Clean by default</h3><p>A streamlined home screen, app access, and familiar Android launcher navigation.</p></article>
+        <article class="card"><div class="tag">02 / Personalize</div><h3>Choose your look</h3><p>Switch the visual direction with optional appearance packs without replacing Android firmware.</p></article>
+      </div>
+    </section>
+    <section class="section" id="themes">
+      <div class="eyebrow">Make it yours</div><h2>Appearance packs</h2>
+      <p class="section-intro">These are optional launcher theme concepts. They change the look and feel, not your device's operating system.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="tag">Pack 01</div><h3>Pixel Experience style</h3>
+          <p>A soft, minimal Android-inspired look with rounded shapes and a familiar Pixel-like visual language.</p>
+          <div class="chips"><span class="chip">Pixel-inspired layout</span><span class="chip">Clean icons</span><span class="chip">Optional Lawnicons</span></div>
+          <a class="btn" href="https://github.com/LawnchairLauncher/lawnicons" target="_blank" rel="noopener">Explore Lawnicons ↗</a>
+        </article>
+        <article class="card">
+          <div class="tag">Pack 02</div><h3>Nothing OS style</h3>
+          <p>A monochrome-inspired interface direction with dot-matrix accents and a restrained black-and-white palette.</p>
+          <div class="chips"><span class="chip">Monochrome mode</span><span class="chip">Nothing-inspired icons</span><span class="chip">Typography styling</span></div>
+          <a class="btn" href="https://nothing.community/" target="_blank" rel="noopener">Nothing Community ↗</a>
+        </article>
+      </div>
+      <p class="note" style="margin-top:16px">Pixel and Nothing are names of their respective third-party brands. These community-inspired appearance concepts are not official products or endorsements.</p>
+    </section>
+    <section class="section" id="download">
+      <div class="eyebrow">Current release</div><h2>NIX OS v1.3 Beta</h2>
+      <p class="section-intro">The release download will appear here when a verified APK is published. We won't send you to an unverified or placeholder file.</p>
+      <div class="card">
+        <div class="version"><span class="dot"></span> Nix_OS_v1.3_Beta</div>
+        <h3>APK download</h3>
+        <p id="releaseStatus">Coming soon — no verified APK release is available yet.</p>
+        <span class="btn disabled" aria-disabled="true">Download not available yet</span>
+        <div class="actions" style="margin-top:14px"><a class="btn" href="https://github.com/ITS1NEXO/NIX-OS/releases" target="_blank" rel="noopener">Check GitHub releases ↗</a><a class="btn" href="https://github.com/ITS1NEXO/NIX-OS" target="_blank" rel="noopener">Source repository ↗</a></div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="eyebrow">Getting started</div><h2>When the APK is released</h2>
+      <div class="steps">
+        <div class="step"><b>STEP 01</b><h3>Download</h3><p>Get the APK from the verified GitHub release page.</p></div>
+        <div class="step"><b>STEP 02</b><h3>Install</h3><p>Review Android's install prompt and grant permission only if you trust the source.</p></div>
+        <div class="step"><b>STEP 03</b><h3>Set as home</h3><p>Choose NIX OS as your default home app when Android asks.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© 2026 NIX OS · Community Android launcher project</span><span><a href="https://github.com/ITS1NEXO/NIX-OS">GitHub</a> · Built for Android</span></footer>
+</body>
+</html>
