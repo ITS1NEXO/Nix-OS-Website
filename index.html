@@ -60,14 +60,14 @@
       <p class="note" style="margin-top:16px">Pixel and Nothing are names of their respective third-party brands. These community-inspired appearance concepts are not official products or endorsements.</p>
     </section>
     <section class="section" id="download">
-      <div class="eyebrow">Current release</div><h2>NIX OS v1.3 Beta</h2>
-      <p class="section-intro">The release download will appear here when a verified APK is published. We won't send you to an unverified or placeholder file.</p>
-      <div class="card">
-        <div class="version"><span class="dot"></span> Nix_OS_v1.3_Beta</div>
-        <h3>APK download</h3>
-        <p id="releaseStatus">Coming soon — no verified APK release is available yet.</p>
-        <span class="btn disabled" aria-disabled="true">Download not available yet</span>
-        <div class="actions" style="margin-top:14px"><a class="btn" href="https://github.com/ITS1NEXO/NIX-OS/releases" target="_blank" rel="noopener">Check GitHub releases ↗</a><a class="btn" href="https://github.com/ITS1NEXO/NIX-OS" target="_blank" rel="noopener">Source repository ↗</a></div>
+      <div class="eyebrow">GitHub releases</div><h2>Download NIX OS</h2>
+      <p class="section-intro">The latest published release is shown here automatically. APK downloads are enabled only when a release includes an APK asset.</p>
+      <div class="card" id="releaseCard" aria-live="polite">
+        <div class="version"><span class="dot"></span> <span id="releaseVersion">Checking latest release…</span></div>
+        <h3 id="releaseTitle">Latest release</h3>
+        <p id="releaseStatus">Connecting to the GitHub releases feed…</p>
+        <div class="actions" id="releaseAssets"></div>
+        <div class="actions" style="margin-top:14px"><a class="btn" href="https://github.com/ITS1NEXO/J.A.R.V.I.S-OS/releases" target="_blank" rel="noopener">All GitHub releases ↗</a><a class="btn" href="https://github.com/ITS1NEXO/J.A.R.V.I.S-OS" target="_blank" rel="noopener">Source repository ↗</a></div>
       </div>
     </section>
     <section class="section">
@@ -80,5 +80,56 @@
     </section>
   </main>
   <footer class="wrap footer"><span>© 2026 NIX OS · Community Android launcher project</span><span><a href="https://github.com/ITS1NEXO/NIX-OS">GitHub</a> · Built for Android</span></footer>
+  <script>
+    // Read published releases directly from GitHub; never fabricate a download link.
+    (async function loadLatestRelease(){
+      const api='https://api.github.com/repos/ITS1NEXO/J.A.R.V.I.S-OS/releases/latest';
+      const version=document.getElementById('releaseVersion');
+      const title=document.getElementById('releaseTitle');
+      const status=document.getElementById('releaseStatus');
+      const assets=document.getElementById('releaseAssets');
+      try{
+        const response=await fetch(api,{headers:{Accept:'application/vnd.github+json'}});
+        if(response.status===404){
+          version.textContent='No published release';
+          title.textContent='APK not published yet';
+          status.textContent='There is no published GitHub release yet. Check the releases page for future builds.';
+          return;
+        }
+        if(!response.ok) throw new Error('GitHub returned '+response.status);
+        const release=await response.json();
+        version.textContent=release.tag_name||'Latest release';
+        title.textContent=release.name||release.tag_name||'NIX OS release';
+        status.textContent=(release.prerelease?'Pre-release':'Published release')+' · '+new Date(release.published_at||release.created_at).toLocaleDateString();
+        const apkAssets=(release.assets||[]).filter(asset=>asset.name.toLowerCase().endsWith('.apk'));
+        if(apkAssets.length){
+          apkAssets.forEach(asset=>{
+            const link=document.createElement('a');
+            link.className='btn primary';
+            link.href=asset.browser_download_url;
+            link.target='_blank';
+            link.rel='noopener';
+            link.textContent='Download '+asset.name;
+            assets.appendChild(link);
+          });
+        }else{
+          status.textContent+=' · No APK file is attached to this release yet.';
+        }
+        if(release.html_url){
+          const notes=document.createElement('a');
+          notes.className='btn';
+          notes.href=release.html_url;
+          notes.target='_blank';
+          notes.rel='noopener';
+          notes.textContent='Release notes ↗';
+          assets.appendChild(notes);
+        }
+      }catch(error){
+        version.textContent='Release feed unavailable';
+        title.textContent='Check GitHub for updates';
+        status.textContent='Could not load the latest release right now. Use the GitHub releases link below.';
+      }
+    })();
+  </script>
 </body>
 </html>
